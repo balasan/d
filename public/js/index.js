@@ -3,6 +3,8 @@
 require('./../css/reset.css');
 require('./../css/style.css');
 window.$ = require('jquery');
+require('./easings.js');
+var pepjs = require('pepjs');
 
 window.mobilecheck = function() {
   var check = false;
@@ -15,12 +17,12 @@ window.mobilecheck = function() {
 document.addEventListener('DOMContentLoaded', function() {
   console.log("start app");
   initApp();
+  initMove();
 });
 
 var data;
 
 function initApp()  {
-
   $.get('/api/d')
   .done(function(_data) {
     data = data;
@@ -30,7 +32,27 @@ function initApp()  {
   .fail(function(err) {
     console.log(err.message)
   })
+}
 
+function initMove() {
+  var x;
+  $(".penis").on("pointerdown", function(event) {
+    x = event.pageX;
+    var $shaft = $(this).find(".shaft");
+    var w = $shaft.width();
+
+    $(window).on("pointermove", function(event) {
+      var dx = event.pageX - x;
+      $shaft.width(dx + w);
+    });
+  });
+
+  $(window).on("pointerup", function(event) {
+    $(window).off("pointermove");
+  });
+  $(body).on("pointerleave", function(event) {
+    $(window).off("pointermove");
+  });
 }
 
 function initD() {
