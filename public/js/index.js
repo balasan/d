@@ -56,6 +56,11 @@ function initMove() {
 
 function initD() {
 
+  var n = data[0].votes;
+  var n = 999;
+  var counter = 0;
+  voteCounter();
+
   data.forEach(function(candidate, i) {
     animatePenis(candidate, i);
   })
@@ -68,6 +73,15 @@ function initD() {
       }, 1000, "easeOutBounce",  i * 10)
     }, i * 100)
   }
+
+  function voteCounter() {
+    counter += Math.ceil( (n - counter) *.1 );
+    $("#numberOfVotes").text(counter)
+    if (counter < n) {
+      setTimeout(voteCounter, 10);
+    }
+  }
+
 }
 
 
