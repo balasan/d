@@ -2,6 +2,7 @@
 
 require('./../css/reset.css');
 require('./../css/style.css');
+window.$ = require('jquery');
 
 window.mobilecheck = function() {
   var check = false;
@@ -13,10 +14,30 @@ window.mobilecheck = function() {
 
 document.addEventListener('DOMContentLoaded', function() {
   console.log("start app");
+  initApp();
 });
 
+var data;
+
+function initApp()  {
+
+  $.get('/api/d')
+  .done(function(_data) {
+    data = data;
+    console.log(data)
+    initD();
+  })
+  .fail(function(err) {
+    console.log(err.message)
+  })
+
+}
+
+function initD() {
 
 
+
+}
 
 
 
