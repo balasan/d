@@ -20,8 +20,12 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 var data;
+var inchesToPixels;
 
 function initApp()  {
+
+  inchesToPixels = 14 / $(".penis").width();
+
   $.get('/api/d')
   .done(function(_data) {
     data = _data;
@@ -69,7 +73,7 @@ function initD() {
     setTimeout(function() {
       var id = candidate.name.replace(" ", "_");
       $("#" + id + " .shaft").animate({
-        width: candidate.size * 500
+        width: candidate.size / inchesToPixels
       }, 1000, "easeOutBounce",  i * 10)
     }, i * 100)
   }
