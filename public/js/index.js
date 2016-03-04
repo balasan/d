@@ -50,7 +50,7 @@ function initMove() {
   $(window).on("pointerup", function(event) {
     $(window).off("pointermove");
   });
-  $(body).on("pointerleave", function(event) {
+  $('body').on("pointerleave", function(event) {
     $(window).off("pointermove");
   });
 }
