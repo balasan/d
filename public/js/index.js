@@ -34,8 +34,7 @@ function initApp()  {
 }
 
 function initD() {
-
-
+  // data.forEach()
 
 }
 

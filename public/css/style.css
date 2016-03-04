@@ -8,13 +8,16 @@
     src: url(/fonts/numu2.woff);
 }*/
 
+$blue: rgb(0,82,165);
 
 html, body {
   height: 100%;
+  font-size: 10px;
 }
 body{
   font: 14px "Georgia", serif;
   /*background: red;*/
+  background-color: $blue;
 }
 
 a {
@@ -22,4 +25,9 @@ a {
   text-decoration: none;
 }
 
-
+.penis{
+  display:inline-block;
+  height:5em;
+  width:30em;
+  background-color:white;
+}
