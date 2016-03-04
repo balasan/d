@@ -50,13 +50,19 @@ function initMove() {
   $(window).on("pointerup", function(event) {
     $(window).off("pointermove");
   });
-  $(body).on("pointerleave", function(event) {
+  $('body').on("pointerleave", function(event) {
     $(window).off("pointermove");
   });
 }
 
 function initD() {
-  // data.forEach()
+
+  data.forEach(function(candidate) {
+    var id = candidate.name.replace(" ", "_");
+    $("#"+id).animate({
+      width: can
+    })
+  })
 
 }
 
