@@ -56,7 +56,13 @@ function initMove() {
 }
 
 function initD() {
-  // data.forEach()
+
+  data.forEach(function(candidate) {
+    var id = candidate.name.replace(" ", "_");
+    $("#"+id).animate({
+      width: can
+    })
+  })
 
 }
 

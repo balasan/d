@@ -6,7 +6,7 @@
     font-family: NuMu Bold;
     src: url(/fonts/numu2.woff);
 }*/
-
+@import "custom-media.css";
 $blue: rgb(0, 82, 165);
 
 * {
@@ -21,35 +21,55 @@ body {
   background-color: $blue;
   color: white;
   font-family: Helvetica, sans-serif;
+  text-align: center;
+}
+main {
+  max-width: 1028px;
+  margin: 0 auto;
+  text-align: initial;
 }
 a {
   color: #00B7FF;
   text-decoration: none;
+  cursor: pointer;
 }
 .penis {
-  display:inline-block;
-  height:5em;
-  cursor:pointer;
+  display: inline-block;
+  height: 5em;
+  cursor: pointer;
 }
 .flag, .stars {
   display: block;
 }
 .stars {
   width: 100%;
-  padding: 2em;
+
+  @media (--mobile) {
+    padding: 2em;
+  }
 }
 header {
   width: 100%;
-  padding: 2em;
+  padding: 2em 0;
+
+  @media (--mobile) {
+    padding: 2em;
+  }
   h1 {
     color: white;
+    white-space: pre-wrap;
     font-family: Helvetica, sans-serif;
-    font-size: 2em;
+    font-size: 1.5em;
+    margin: 0 0 0.5em 0;
+    &:last-of-type {
+      margin: 0;
+    }
   }
   .info {
     display: flex;
     justify-content: space-between;
     align-items: center;
+
     p, a {
       color: white;
       font-family: Helvetica, sans-serif;
@@ -57,32 +77,41 @@ header {
   }
 }
 .transparent-white {
-    border: 2px solid white;
-    padding: 0.35em 1.5em;
+  border: 2px solid white;
+  padding: 0.35em 1.5em;
+  &:hover {
+    background-color: white;
+    color: $blue;
+  }
 }
 footer {
   width: 100%;
-  padding: 2em;
+  padding: 2em 0;
+  @media (--mobile) {
+    padding: 2em;
+  }
   p {
     color: white;
-    font-family:
+    &:last-of-type {
+      font-size: 0.75em;
+    }
   }
 }
-
-.penis{
-  display:inline-block;
-  height:5em;
-  cursor:pointer;
+.penis {
+  display: inline-block;
+  height: 5em;
+  cursor: pointer;
+  max-width: 100vw;
 }
-.shaft{
-  display:inline-block;
-  width:10em;
-  height:100%;
-  background-color:white;
+.shaft {
+  display: inline-block;
+  width: 0em;
+  height: 100%;
+  background-color: white;
 }
-.head{
-  display:inline-block;
-  width:10em;
-  height:100%;
-  background-color:grey;
+.head {
+  display: inline-block;
+  width: 10em;
+  height: 100%;
+  background-color: grey;
 }
