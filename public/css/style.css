@@ -28,6 +28,18 @@ a {
 .penis{
   display:inline-block;
   height:5em;
+}
+.shaft{
+  display:inline-block;
   width:30em;
+  height:100%;
   background-color:white;
 }
+.head{
+  display:inline-block;
+  width:10em;
+  height:100%;
+  background-color:grey;
+}
+
+

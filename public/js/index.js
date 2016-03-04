@@ -3,6 +3,7 @@
 require('./../css/reset.css');
 require('./../css/style.css');
 window.$ = require('jquery');
+require('./easings.js')
 
 window.mobilecheck = function() {
   var check = false;
