@@ -41,9 +41,9 @@ exports.create = function(req, res) {
 exports.update = function(req, res) {
 
 
-  if (req.cookies.voted == "true") return handleError(res, "You can only vote once");
-  res.cookie('voted', 'true');
-  console.log("Cookie", req.cookies.voted)
+  // if (req.cookies.voted == "true") return handleError(res, "Sorry, you can only vote once");
+  // res.cookie('voted', 'true');
+  // console.log("Cookie", req.cookies.voted)
 
   var vote = req.body;
 
