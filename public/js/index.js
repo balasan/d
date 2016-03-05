@@ -60,7 +60,7 @@ function submitPoll() {
     })
     .fail(function(err) {
       //TODO error feedback
-      console.log(err.message)
+      console.log(err.responseText)
     })
 
 }
