@@ -23,6 +23,7 @@ var data;
 var inchesToPixels;
 var headSizePx = 65;
 var headSizeIn;
+var draggable = false;
 
 function initApp()  {
 
@@ -48,14 +49,14 @@ function initApp()  {
 }
 
 function submitPoll() {
+
+  draggable = false;
   var voteData = {};
   $(".penis").each(function(){
     var name = this.id.replace("_", " ")
     var size = $(this).find(".shaft").width() * inchesToPixels
     voteData[name] = size
   })
-
-
 
   $.post('/api/d', voteData)
     .done(function(_data) {
@@ -72,13 +73,15 @@ function submitPoll() {
 
 function initMove() {
   var x;
+
   $(".penis").on("pointerdown", function(event) {
+    if (!draggable) return;
     x = event.pageX;
     var $shaft = $(this).find(".shaft");
     var $number = $(this).find(".number");
     var w = $shaft.width();
 
-    $(window).on("pointermove", function(event) {
+    $('body').on("pointermove", function(event) {
       var dx = event.pageX - x;
       var width = Math.min(dx + w, 14 / inchesToPixels - 70);
       width = Math.max(width, 0);
@@ -89,11 +92,11 @@ function initMove() {
     });
   });
 
-  $(window).on("pointerup", function(event) {
-    $(window).off("pointermove");
+  $('body').on("pointerup", function(event) {
+    $('body').off("pointermove");
   });
   $('body').on("pointerleave", function(event) {
-    $(window).off("pointermove");
+    $('body').off("pointermove");
   });
 }
 
@@ -159,6 +162,7 @@ function initButton() {
     for (i = 0; i < pollButton.length; i++) {
       pollButton[i].addEventListener("click", function(){
         takePoll();
+        draggable = true;
       });
     };
 }
