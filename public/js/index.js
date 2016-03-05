@@ -75,12 +75,17 @@ function initMove() {
   $(".penis").on("pointerdown", function(event) {
     x = event.pageX;
     var $shaft = $(this).find(".shaft");
+    var $number = $(this).find(".number");
     var w = $shaft.width();
 
     $(window).on("pointermove", function(event) {
       var dx = event.pageX - x;
       var width = Math.min(dx + w, 14 / inchesToPixels - 70);
+      width = Math.max(width, 0);
       $shaft.width(width);
+      var size = width * inchesToPixels + headSizeIn;
+      var size = Math.round(size * 10)/10;
+      $number.text(size + '"');
     });
   });
 
@@ -96,9 +101,13 @@ function initD() {
 
   var n = data[0].votes;
   var counter = 0;
-  voteCounter();
+  count($("#numberOfVotes"), n, 0);
 
   data.forEach(function(candidate, i) {
+    var id = candidate.name.replace(" ", "_");
+    var size = candidate.size + headSizeIn;
+    countD($("#" + id + " .number"), size, 0);
+
     animatePenis(candidate, i);
   })
 
@@ -111,12 +120,35 @@ function initD() {
     }, i * 100)
   }
 
-  function voteCounter() {
-    counter += Math.ceil( (n - counter) *.1 );
-    $("#numberOfVotes").text(counter)
-    if (counter < n) {
-      setTimeout(voteCounter, 10);
-    }
+  // function voteCounter() {
+  //   counter += Math.ceil( (n - counter) *.1 );
+  //   $("#numberOfVotes").text(counter)
+  //   if (counter < n) {
+  //     setTimeout(voteCounter, 10);
+  //   }
+  // }
+}
+
+function countD($el, n, counter){
+  var dc = Math.max((n - counter) * .1, .1);
+  counter += dc;
+  if(counter > n - .1) return;
+  counter = Math.round(counter * 10) / 10;
+  $el.text(counter + '"');
+  if (counter < n) {
+    setTimeout(function(){
+      countD($el, n, counter)
+    }, 10);
+  }
+}
+
+function count($el, n, counter){
+  counter += Math.ceil( (n - counter) * .1);
+  $el.text(counter);
+  if (counter < n) {
+    setTimeout(function(){
+      count($el, n, counter)
+    }, 10);
   }
 }
 
