@@ -26,6 +26,8 @@ function initApp()  {
 
   inchesToPixels = 14 / $(".penis").width();
 
+  initButton()
+
   $.get('/api/d')
   .done(function(_data) {
     data = _data;
@@ -85,8 +87,49 @@ function initD() {
       setTimeout(voteCounter, 10);
     }
   }
-
 }
+
+function initButton() {
+  var pollButton = document.getElementById('takePoll');
+
+  pollButton.addEventListener("click", function(){
+    takePoll();
+  });
+}
+
+function takePoll() {
+ var overlayEl = document.getElementById('overlay');
+ var infoEl = document.getElementsByClassName('info')[0];
+ var voteEl = document.getElementsByClassName('vote')[0];
+ var submitEl = document.getElementsByClassName('submit')[0];
+ infoEl.classList.add('hide');
+ submitEl.classList.remove('absolute')
+ setTimeout(function() {
+  submitEl.classList.remove('hide')
+  infoEl.classList.add('absolute')
+  voteEl.classList.add('show')
+ }, 300);
+ overlayEl.classList.add('show');
+ overlayEl.addEventListener("click", function(){
+    overlayEl.classList.remove('show');
+  });
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

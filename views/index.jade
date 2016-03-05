@@ -6,8 +6,11 @@ block content
 
 	main
 		header
-			h1 Which presidential candidate has the biggest penis?
-			h2 Donald Trump claims in this Republican Debate that he might be the one.
+			h1 Presidential Penis Poll
+			h2 Which presidential candidate has the biggest penis?
+			h2 Donald Trump claims in&nbsp;
+				a(href='https://www.youtube.com/watch?v=nALb4lEbSbA' target='_blank') this Republican Debate
+				&nbsp;that he might be the one.
 			h2
 				| What do you think?
 				| Vote Now.
@@ -18,7 +21,9 @@ block content
 					p
 						span#numberOfVotes
 						| &nbsp;respondents
-				a.transparent-white take the poll
+				a.transparent-white#takePoll take the poll
+			.vote
+				h2 Your vote:
 
 		#chart
 			.penis#Donald_Trump
@@ -45,10 +50,17 @@ block content
 				.shaft
 				.head
 
-		.button#submitPoll Submit Poll
+		.button.submit.hide.absolute
+			a.transparent-white#submitPoll Submit Poll
 
 		footer
 			p Results ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
 			p Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+
+		.overlay#overlay
+				.container
+					img(src='/img/key.svg')
+					.button
+						a.transparent-white continue
 
 	img.flag(src='/img/flag_bottom.svg')
