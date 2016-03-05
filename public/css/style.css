@@ -1,6 +1,6 @@
 @import "custom-media.css";
 $blue: rgb(0, 107, 249);
-$red: rgb(224,22,43);
+$red: rgb(224, 22, 43);
 
 * {
   box-sizing: border-box;
@@ -31,7 +31,7 @@ a {
   display: inline-block;
   height: 4em;
   cursor: pointer;
-  overflow:hidden;
+  overflow: hidden;
 }
 .flag, .stars {
   display: block;
@@ -48,12 +48,13 @@ a {
 }
 header {
   width: 100%;
-    padding: 2em;
+  padding: 2em;
 
   h1 {
     white-space: pre-wrap;
     font-family: Helvetica, sans-serif;
     font-size: 2em;
+
     @media (--desktop) {
       font-size: 4em;
     }
@@ -63,6 +64,7 @@ header {
     white-space: pre-wrap;
     font-family: Helvetica, sans-serif;
     font-size: 1.2em;
+
     @media (--desktop) {
       font-size: 1.75em;
     }
@@ -113,6 +115,7 @@ footer {
   width: 100%;
   padding: 2em;
   text-align: center;
+
   p {
     color: white;
     font-size: 1em;
@@ -135,14 +138,14 @@ section {
     display: flex;
     align-items: center;
     margin: .7em 0 1.5em 0;
-        width: 100%;
+    width: 100%;
     overflow: hidden;
 
     .pic {
       width: 5em;
       height: 5em;
       border-radius: 3.5em;
-      margin: 0 1em 0 0;
+      margin: 0 10px 0 0;
       background-size: cover;
       background-position: center center;
       background-repeat: no-repeat;
@@ -152,7 +155,7 @@ section {
         background-blend-mode: multiply;
       }
       &.d {
-        background-color:  rgba(0, 82, 165, 0.75);
+        background-color: rgba(0, 82, 165, 0.75);
         background-blend-mode: overlay;
       }
     }
@@ -203,10 +206,11 @@ section {
       backface-visibility: hidden;
       .number{
         position:absolute;
+
         font-size: 1.2em;
         color: $red;
-        top:50%;
-        left:30%;
+        top: 50%;
+        left: 30%;
         transform: translateX(-50%) translateY(-50%);
       }
     }
@@ -277,6 +281,7 @@ section {
   top: 1em;
   right: 1em;
   display: flex;
+
   div {
     margin: 0 0 0 0.5em;
   }
@@ -285,10 +290,12 @@ section {
   margin: 3em 0 0 0;
   height: 42px;
   overflow: hidden;
+
   .button {
     left: 50%;
     backface-visibility: hidden;
     transform: translateX(-50%);
+
     a {
       white-space: nowrap;
     }
@@ -305,3 +312,5 @@ section {
   color:$red;
   font-size: 18px;
 }
+
+

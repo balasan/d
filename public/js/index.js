@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', function() {
   console.log("start app");
   initApp();
   initMove();
-  window.onresize = resize;
+  // window.onresize = resize;
 });
 
 var data;
@@ -174,13 +174,13 @@ function count($el, n, counter){
 }
 
 
-function resize(){
-  headSizePx = $(".head").width();
-  inchesToPixels = 14 / $(".penis").width();
-  headSizeIn = headSizePx * inchesToPixels;
-  headSizeIn = headSizePx * inchesToPixels;
-  initD(true);
-}
+// function resize(){
+//   headSizePx = $(".head").width();
+//   inchesToPixels = 14 / $(".penis").width();
+//   headSizeIn = headSizePx * inchesToPixels;
+//   headSizeIn = headSizePx * inchesToPixels;
+//   initD(true);
+// }
 
 
 function initButton() {
