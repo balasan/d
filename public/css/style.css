@@ -139,7 +139,7 @@ section {
   .container {
     display: flex;
     align-items: center;
-    padding: 0.5em 0 0 0;
+    margin: 1.5em 0 0 0;
 
     .pic {
       width: 7em;
@@ -149,13 +149,38 @@ section {
       background-size: cover;
       background-position: center center;
       background-repeat: no-repeat;
+      background-blend-mode: multiply;
+
+      &.r {
+        background-color: RGBA(225, 63, 54, 1);
+      }
+      &.d {
+        background-color: RGBA(29, 82, 169, 1);
+      }
     }
     .penis {
       display: block;
       height: 5em;
       cursor: pointer;
       max-width: 100vw;
+      position: relative;
       flex-grow: 1;
+
+      .grid {
+        position: absolute;
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        height: 120%;
+        top: 50%;
+        transform: translateY(-50%);
+
+        div {
+          border-left: 1px dotted white;
+          height: 100%;
+          width: 1px;
+        }
+      }
     }
     .shaft {
       display: inline-block;
