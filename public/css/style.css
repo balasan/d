@@ -17,7 +17,6 @@ body {
   color: white;
   font-family: Helvetica, sans-serif;
   text-align: center;
-  touch-action: pan-x;
 }
 main {
   max-width: 900px;
@@ -33,7 +32,6 @@ a {
   height: 4em;
   cursor: pointer;
   overflow:hidden;
-  touch-action: auto;
 }
 .flag, .stars {
   display: block;
@@ -194,7 +192,7 @@ section {
     }
     .head {
       display: inline-block;
-      width: 70px;
+      width: 51px;
       height: 100%;
       margin-left: -5px;
       background-image: url('/img/head.svg');
@@ -202,6 +200,7 @@ section {
       background-size: contain;
       background-repeat: no-repeat;
       position:relative;
+      backface-visibility: hidden;
       .number{
         position:absolute;
         font-size: 1.2em;
@@ -296,4 +295,13 @@ section {
   }
 }
 
-
+.success{
+  text-align: center;
+  color:white;
+  font-size: 18px;
+}
+.error{
+  text-align: center;
+  color:$red;
+  font-size: 18px;
+}
