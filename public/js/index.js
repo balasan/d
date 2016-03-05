@@ -44,8 +44,7 @@ function initApp()  {
   })
   .fail(function(err) {
     //TODO error feedback
-    // console.log(err.message)
-    $(".error").text("There was an error retreiving data")
+    console.log(err.message)
   })
 }
 
@@ -63,11 +62,11 @@ function submitPoll() {
     .done(function(_data) {
        data = _data[0].candidates;
        initD();
-       $(".success").text("Thank you for submitting your vote!")
-       $(".submit").addClass('hide');
+       //TODO success feedback
     })
     .fail(function(err) {
-      $(".error").text(err.responseText)
+      //TODO error feedback
+      console.log(err.responseText)
     })
 
 }
@@ -75,41 +74,29 @@ function submitPoll() {
 function initMove() {
   var x;
 
-  $(".penis").on('touchstart', start);
-  $(".penis").on('mousedown', start);
-
-  function start(e){
-    // if (!draggable) return;
-    x = e.pageX || e.originalEvent.targetTouches[0].pageX;
+  $(".penis").on("pointerdown", function(event) {
+    if (!draggable) return;
+    x = event.pageX;
     var $shaft = $(this).find(".shaft");
     var $number = $(this).find(".number");
     var w = $shaft.width();
 
-    $(window).on("touchmove",move)
-    $(window).on("mousemove", move)
-
-    function move(e){
-      var currentX = e.pageX || e.originalEvent.targetTouches[0].pageX
-      var dx = currentX - x;
+    $('body').on("pointermove", function(event) {
+      var dx = event.pageX - x;
       var width = Math.min(dx + w, 14 / inchesToPixels - 70);
       width = Math.max(width, 0);
       $shaft.width(width);
       var size = width * inchesToPixels + headSizeIn;
       var size = Math.round(size * 10)/10;
       $number.text(size + '"');
-    }
-  }
-
-
-
-  $(window).on("mouseup", function(event) {
-    $(window).off("mousemove");
+    });
   });
-  $(window).on("touchend", function(event) {
-    $(window).off("touchmove");
+
+  $('body').on("pointerup", function(event) {
+    $('body').off("pointermove");
   });
-  $(window).on("mouseleave", function(event) {
-    $(window).off("pointermove");
+  $('body').on("pointerleave", function(event) {
+    $('body').off("pointermove");
   });
 }
 
