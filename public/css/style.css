@@ -130,7 +130,8 @@ footer {
 }
 section {
   margin: 0 0 1.5em 0;
-  padding: 0 0 0 1em;
+  padding: 0 0 0 2em;
+  width: calc(100% - 2em);
 
   &:last-of-type {
     margin: 0;
@@ -154,7 +155,7 @@ section {
         background-color: RGBA(225, 63, 54, 1);
       }
       &.d {
-        background-color: RGBA(29, 82, 169, 1);
+        background-color: $blue;
       }
     }
     .penis {
@@ -244,18 +245,11 @@ section {
 .button {
   display: block;
   text-align: center;
-  margin: 2em 0 0 0;
 
   a {
     display: inline-block;
     font-size: 1.5em;
   }
-}
-.submit {
-  opacity: 1;
-  pointer-events: auto;
-  transition: opacity 300ms ease;
-
   &.hide {
     pointer-events: none;
     opacity: 0;
@@ -264,3 +258,29 @@ section {
     position: absolute;
   }
 }
+.submit {
+  opacity: 1;
+  pointer-events: auto;
+  transition: opacity 300ms ease;
+}
+.fb-share-button {
+  position: absolute !important;
+  top: 1em;
+  right: 1em;
+}
+.hold-buttons {
+  margin: 3em 0 0 0;
+  height: 42px;
+  overflow: hidden;
+  .button {
+    left: 50%;
+    backface-visibility: hidden;
+    transform: translateX(-50%);
+    a {
+      white-space: nowrap;
+    }
+  }
+}
+
+
+

@@ -1,6 +1,8 @@
 extends layout
 
 block content
+	#fb-root
+	script(src="/js/fb.js" type="text/javascript")
 
 	img.flag(src='/img/flag_top.svg')
 
@@ -21,7 +23,7 @@ block content
 					p
 						span#numberOfVotes
 						| &nbsp;respondents
-				a.transparent-white#takePoll Take The Poll
+				a.transparent-white.takePoll Take The Poll
 			.vote
 				h2 Your vote:
 
@@ -29,9 +31,10 @@ block content
 			section
 				h2 Donald Trump
 				.container
-					.pic.r(style="background-image: url('/img/bernie.jpg');")
+					.pic.r(style="background-image: url('/img/omg.jpg');")
 					.penis#Donald_Trump
 						.grid
+							div
 							div
 							div
 							div
@@ -69,6 +72,7 @@ block content
 							div
 							div
 							div
+							div
 						.shaft
 						.head
 
@@ -78,6 +82,7 @@ block content
 					.pic.r(style="background-image: url('/img/bernie.jpg');")
 					.penis#Marco_Rubio
 						.grid
+							div
 							div
 							div
 							div
@@ -115,6 +120,7 @@ block content
 							div
 							div
 							div
+							div
 						.shaft
 						.head
 
@@ -124,6 +130,7 @@ block content
 					.pic.d(style="background-image: url('/img/bernie.jpg');")
 					.penis#Hillary_Clinton
 						.grid
+							div
 							div
 							div
 							div
@@ -161,15 +168,21 @@ block content
 							div
 							div
 							div
+							div
 						.shaft
 						.head
 
-		.button.submit.hide.absolute
-			a.transparent-white#submitPoll Submit Poll
+		.hold-buttons
+			.button.bottomPoll.absolute
+				a.transparent-white.takePoll Take The Poll
+			.button.submit.hide.absolute
+				a.transparent-white#submitPoll Submit Poll
 
 		footer
 			p Results ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
 			p Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+
+		.fb-share-button(data-href='http://presidentialpenis.com', data-layout='button_count')
 
 		.overlay#overlay
 				.container
