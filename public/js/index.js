@@ -21,10 +21,13 @@ document.addEventListener('DOMContentLoaded', function() {
 
 var data;
 var inchesToPixels;
+var headSizePx = 65;
+var headSizeIn;
 
 function initApp()  {
 
   inchesToPixels = 14 / $(".penis").width();
+  headSizeIn = 65 * inchesToPixels;
 
   $("#submitPoll").on('click', function() {
     submitPoll();
@@ -74,7 +77,8 @@ function initMove() {
 
     $(window).on("pointermove", function(event) {
       var dx = event.pageX - x;
-      $shaft.width(dx + w);
+      var width = Math.min(dx + w, 14 / inchesToPixels - 70);
+      $shaft.width(width);
     });
   });
 
