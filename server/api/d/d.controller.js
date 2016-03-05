@@ -38,19 +38,27 @@ exports.create = function(req, res) {
 
 // Updates an existing thing in the DB.
 exports.update = function(req, res) {
-  if(req.body._id) { delete req.body._id; }
-  D.findById(req.params.id, function (err, thing) {
+
+  var vote = req.body;
+
+  D.find(function (err, candidates) {
     if (err) { return handleError(res, err); }
-    if(!thing) { return res.send(404); }
+    if(!candidates) { return res.send(404); }
 
-    // var updated = _.merge(thing, req.body);
-    //TODO more steps
-    req.body._id = req.params.id
-    var updated = req.body
+    var c = candidates[0];
+    console.log(c.candidates)
 
-    updated.save(function (err) {
+    c.candidates.forEach(function(candidate){
+      var voteSize = vote[candidate.name]
+      candidate.size = (parseFloat(voteSize) + candidate.votes * candidate.size) / (candidate.votes + 1.0);
+      candidate.votes++
+    })
+
+    console.log(c.candidates)
+
+    c.save(function (err) {
       if (err) { return handleError(res, err); }
-      return res.json(200, thing);
+      return res.json(200, candidates);
     });
   });
 };

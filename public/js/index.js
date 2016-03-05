@@ -26,15 +26,43 @@ function initApp()  {
 
   inchesToPixels = 14 / $(".penis").width();
 
+  $("#submitPoll").on('click', function() {
+    submitPoll();
+  })
+
   $.get('/api/d')
   .done(function(_data) {
-    data = _data;
+    data = _data[0].candidates;
     // console.log(data)
     initD();
   })
   .fail(function(err) {
+    //TODO error feedback
     console.log(err.message)
   })
+}
+
+function submitPoll() {
+  var voteData = {};
+  $(".penis").each(function(){
+    var name = this.id.replace("_", " ")
+    var size = $(this).find(".shaft").width() * inchesToPixels
+    voteData[name] = size
+  })
+
+
+
+  $.post('/api/d', voteData)
+    .done(function(_data) {
+       data = _data[0].candidates;
+       initD();
+       //TODO success feedback
+    })
+    .fail(function(err) {
+      //TODO error feedback
+      console.log(err.message)
+    })
+
 }
 
 function initMove() {
@@ -61,7 +89,6 @@ function initMove() {
 function initD() {
 
   var n = data[0].votes;
-  var n = 999;
   var counter = 0;
   voteCounter();
 

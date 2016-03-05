@@ -84,6 +84,9 @@ header {
     color: $blue;
   }
 }
+#submitPoll{
+  cursor:pointer;
+}
 footer {
   width: 100%;
   padding: 2em 0;
@@ -98,7 +101,7 @@ footer {
   }
 }
 .penis {
-  display: inline-block;
+  display: block;
   height: 5em;
   cursor: pointer;
   max-width: 100vw;
