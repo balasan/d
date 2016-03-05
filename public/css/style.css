@@ -145,11 +145,10 @@ section {
       height: 3.5em;
       border-radius: 3.5em;
       margin: 0 1em 0 0;
- background-size: cover;
- background-position: center center;
+      background-size: cover;
+      background-position: center center;
       background-repeat: no-repeat;
     }
-
     .penis {
       display: block;
       height: 5em;
@@ -159,14 +158,21 @@ section {
     .shaft {
       display: inline-block;
       width: 0em;
-      height: 100%;
+      height: calc(100% - 4px);
       background-color: white;
+      margin: 2px 0;
+      border-top-right-radius: 10px;
+      border-bottom-right-radius: 10px;
     }
     .head {
       display: inline-block;
-      width: 10em;
+      width: 70px;
       height: 100%;
-      background-color: grey;
+      margin-left: -5px;
+      background-image: url('/img/head.svg');
+      background-position: left center;
+      background-size: contain;
+      background-repeat: no-repeat;
     }
   }
 }

@@ -11,6 +11,7 @@
 
 var D = require('./d.model');
 
+
 // Get list of things
 exports.index = function(req, res) {
   D.find(function (err, things) {
@@ -39,6 +40,11 @@ exports.create = function(req, res) {
 // Updates an existing thing in the DB.
 exports.update = function(req, res) {
 
+
+  if (req.cookies.voted == "true") return handleError(res, "You can only vote once");
+  res.cookie('voted', 'true');
+  console.log("Cookie", req.cookies.voted)
+
   var vote = req.body;
 
   D.find(function (err, candidates) {
@@ -46,15 +52,12 @@ exports.update = function(req, res) {
     if(!candidates) { return res.send(404); }
 
     var c = candidates[0];
-    console.log(c.candidates)
 
     c.candidates.forEach(function(candidate){
       var voteSize = vote[candidate.name]
       candidate.size = (parseFloat(voteSize) + candidate.votes * candidate.size) / (candidate.votes + 1.0);
       candidate.votes++
     })
-
-    console.log(c.candidates)
 
     c.save(function (err) {
       if (err) { return handleError(res, err); }
