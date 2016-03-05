@@ -169,12 +169,15 @@ function count($el, n, counter){
 }
 
 function initButton() {
-  var pollButton = document.getElementById('takePoll');
+  var pollButton = document.getElementsByClassName('takePoll');
 
-  pollButton.addEventListener("click", function(){
-    takePoll();
-    draggable = true;
-  });
+    var i = 0;
+    for (i = 0; i < pollButton.length; i++) {
+      pollButton[i].addEventListener("click", function(){
+        takePoll();
+        draggable = true;
+      });
+    };
 }
 
 function takePoll() {
@@ -182,13 +185,18 @@ function takePoll() {
  var infoEl = document.getElementsByClassName('info')[0];
  var voteEl = document.getElementsByClassName('vote')[0];
  var submitEl = document.getElementsByClassName('submit')[0];
+ var bottomPoll = document.getElementsByClassName('bottomPoll')[0];
  infoEl.classList.add('hide');
- submitEl.classList.remove('absolute')
+ // submitEl.classList.remove('absolute');
+ bottomPoll.classList.add('hide');
+
  setTimeout(function() {
   submitEl.classList.remove('hide')
   infoEl.classList.add('absolute')
   voteEl.classList.add('show')
+  // bottomPoll.classList.add('absolute');
  }, 300);
+
  overlayEl.classList.add('show');
  overlayEl.addEventListener("click", function(){
     overlayEl.classList.remove('show');

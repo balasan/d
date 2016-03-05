@@ -1,6 +1,9 @@
 extends layout
 
 block content
+	#fb-root
+	script(src="/js/fb.js" type="text/javascript")
+	script(src="/js/twitter.js" type="text/javascript")
 
 	img.flag(src='/img/flag_top.svg')
 
@@ -21,7 +24,7 @@ block content
 					p
 						span#numberOfVotes
 						| &nbsp;respondents
-				a.transparent-white#takePoll Take The Poll
+				a.transparent-white.takePoll Take The Poll
 			.vote
 				h2 Your vote:
 
@@ -30,9 +33,10 @@ block content
 			section
 				h2 Donald Trump
 				.container
-					.pic.r(style="background-image: url('/img/bernie.jpg');")
+					.pic.r(style="background-image: url('/img/omg.jpg');")
 					.penis#Donald_Trump()
 						.grid
+							div
 							div
 							div
 							div
@@ -54,9 +58,10 @@ block content
 			section
 				h2 Hillary Clinton
 				.container
-					.pic.d(style="background-image: url('/img/bernie.jpg');")
+					.pic.d(style="background-image: url('/img/hillary.jpg');")
 					.penis#Hillary_Clinton()
 						.grid
+							div
 							div
 							div
 							div
@@ -95,6 +100,7 @@ block content
 							div
 							div
 							div
+							div
 						.shaft
 						.head
 							.number
@@ -102,9 +108,10 @@ block content
 			section
 				h2 Ted Cruz
 				.container
-					.pic.r(style="background-image: url('/img/bernie.jpg');")
+					.pic.r(style="background-image: url('/img/cruz.jpg');")
 					.penis#Ted_Cruz()
 						.grid
+							div
 							div
 							div
 							div
@@ -128,9 +135,10 @@ block content
 			section
 				h2 John Kasich
 				.container
-					.pic.r(style="background-image: url('/img/bernie.jpg');")
+					.pic.r(style="background-image: url('/img/john.jpg');")
 					.penis#John_Kasich()
 						.grid
+							div
 							div
 							div
 							div
@@ -152,9 +160,10 @@ block content
 			section
 				h2 Marco Rubio
 				.container
-					.pic.r(style="background-image: url('/img/bernie.jpg');")
+					.pic.r(style="background-image: url('/img/rubio.jpg');")
 					.penis#Marco_Rubio()
 						.grid
+							div
 							div
 							div
 							div
@@ -173,11 +182,15 @@ block content
 						.head
 							.number
 
+		.hold-buttons
+			.button.bottomPoll.absolute
+				a.transparent-white.takePoll Take The Poll
+			.button.submit.hide.absolute
+				a.transparent-white#submitPoll Submit Poll
 
-		.error
-		.success
-		.button.submit.hide.absolute
-			a.transparent-white#submitPoll Submit Poll
+		.social
+			a.twitter-share-button(href='https://twitter.com/share', data-url='http://presidentialpenis.com/', data-hashtags='presidentialPenis') Tweet
+			.fb-share-button(data-href='http://presidentialpenis.com', data-layout='button_count')
 
 		footer
 			p This poll was created by the team at <a href="http://4real.io" target="_blank">4REAL</a> with help from <a href="http://phillipfivel.com" target="_blank"/>Phillip Fivel Nessen</a> and <a href="https://twitter.com/tomgalle" target="_blank">Tom Galle</a>

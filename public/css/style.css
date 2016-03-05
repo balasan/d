@@ -23,7 +23,6 @@ body {
   color: white;
   font-family: Helvetica, sans-serif;
   text-align: center;
-  touch-action: pan-x;
 }
 main {
   max-width: 1028px;
@@ -40,7 +39,6 @@ a {
   height: 4em;
   cursor: pointer;
   overflow:hidden;
-  touch-action: auto;
 }
 .flag, .stars {
   display: block;
