@@ -21,34 +21,58 @@ block content
 					p
 						span#numberOfVotes
 						| &nbsp;respondents
-				a.transparent-white#takePoll take the poll
+				a.transparent-white#takePoll Take The Poll
 			.vote
 				h2 Your vote:
 
 		#chart
-			.penis#Donald_Trump
-				.shaft
-				.head
-			br
-			.penis#John_Kasich
-				.shaft
-				.head
-			br
-			.penis#Marco_Rubio
-				.shaft
-				.head
-			br
-			.penis#Ted_Cruz
-				.shaft
-				.head
-			br
-			.penis#Hillary_Clinton
-				.shaft
-				.head
-			br
-			.penis#Bernie_Sanders
-				.shaft
-				.head
+			section
+				h2 Donald Trump
+				.container
+					.pic.r(style="background: url('/img/bernie.jpg');")
+					.penis#Donald_Trump
+						.shaft
+						.head
+
+			section
+				h2 John Kasich
+				.container
+					.pic.r(style="background-image: url('/img/bernie.jpg');")
+					.penis#John_Kasich
+						.shaft
+						.head
+
+			section
+				h2 Marco Rubio
+				.container
+					.pic.r(style="background-image: url('/img/bernie.jpg');")
+					.penis#Marco_Rubio
+						.shaft
+						.head
+
+			section
+				h2 Ted Cruz
+				.container
+					.pic.r(style="background-image: url('/img/bernie.jpg');")
+					.penis#Ted_Cruz
+						.shaft
+						.head
+
+			section
+				h2 Hillary Clinton
+				.container
+					.pic.r(style="background-image: url('/img/bernie.jpg');")
+					.penis#Hillary_Clinton
+						.shaft
+						.head
+
+			section
+				h2 Bernie Sanders
+				.container
+					.pic.r(style="background-image: url('/img/bernie.jpg');")
+					.penis#Bernie_Sanders
+						.shaft
+						.head
 
 		.button.submit.hide.absolute
 			a.transparent-white#submitPoll Submit Poll
@@ -61,6 +85,6 @@ block content
 				.container
 					img(src='/img/key.svg')
 					.button
-						a.transparent-white continue
+						a.transparent-white Continue
 
 	img.flag(src='/img/flag_bottom.svg')
