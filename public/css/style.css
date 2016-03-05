@@ -8,6 +8,7 @@
 }*/
 @import "custom-media.css";
 $blue: rgb(0, 82, 165);
+$red: rgb(224,22,43);
 
 * {
   box-sizing: border-box;
@@ -141,8 +142,8 @@ section {
     padding: 0.5em 0 0 0;
 
     .pic {
-      width: 3.5em;
-      height: 3.5em;
+      width: 7em;
+      height: 7em;
       border-radius: 3.5em;
       margin: 0 1em 0 0;
       background-size: cover;
@@ -154,6 +155,7 @@ section {
       height: 5em;
       cursor: pointer;
       max-width: 100vw;
+      flex-grow: 1;
     }
     .shaft {
       display: inline-block;
@@ -173,6 +175,15 @@ section {
       background-position: left center;
       background-size: contain;
       background-repeat: no-repeat;
+      position:relative;
+      .number{
+        position:absolute;
+        font-size: 18px;
+        color: $red;
+        top:50%;
+        left:35%;
+        transform: translateX(-50%) translateY(-50%);
+      }
     }
   }
 }
