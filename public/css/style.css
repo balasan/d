@@ -1,24 +1,18 @@
-/*@font-face {
-    font-family: NuMu;
-    src: url(/fonts/numu1.woff);
-}
-@font-face {
-    font-family: NuMu Bold;
-    src: url(/fonts/numu2.woff);
-}*/
 @import "custom-media.css";
-$blue: rgb(0, 82, 165);
+$blue: rgb(0, 107, 249);
 $red: rgb(224,22,43);
 
 * {
   box-sizing: border-box;
 }
 html, body {
-  height: 100%;
   font-size: 10px;
+  width: 100vw;
+  overflow-x: hidden;
+  overflow-y: scroll;
 }
 body {
-  font: 14px "Georgia", serif;
+  font-size: 14px;
   background-color: $blue;
   color: white;
   font-family: Helvetica, sans-serif;
@@ -26,13 +20,12 @@ body {
   touch-action: pan-x;
 }
 main {
-  max-width: 1028px;
+  max-width: 900px;
   margin: 0 auto;
   text-align: initial;
 }
 a {
   color: white;
-  /*text-decoration: none;*/
   cursor: pointer;
 }
 .penis {
@@ -46,32 +39,35 @@ a {
   display: block;
 }
 .stars {
-  width: 50%;
+  width: 30%;
   padding: 2em 0;
   margin: 0 auto;
 
   @media (--mobile) {
-    width: 100%;
+    width: 70%;
     padding: 2em;
   }
 }
 header {
   width: 100%;
-  padding: 2em 0;
-
-  @media (--mobile) {
     padding: 2em;
-  }
+
   h1 {
     white-space: pre-wrap;
     font-family: Helvetica, sans-serif;
     font-size: 2em;
+    @media (--desktop) {
+      font-size: 4em;
+    }
     margin: 0 0 0.5em 0;
   }
   h2 {
     white-space: pre-wrap;
     font-family: Helvetica, sans-serif;
     font-size: 1.2em;
+    @media (--desktop) {
+      font-size: 1.75em;
+    }
     margin: 0 0 0.5em 0;
 
     a {
@@ -117,12 +113,8 @@ header {
 }
 footer {
   width: 100%;
-  padding: 2em 0;
+  padding: 2em
   text-align: center;
-
-  @media (--mobile) {
-    padding: 2em;
-  }
   p {
     color: white;
     font-size: 1em;
@@ -145,6 +137,8 @@ section {
     display: flex;
     align-items: center;
     margin: .7em 0 1.5em 0;
+        width: 100%;
+    overflow: hidden;
 
     .pic {
       width: 5em;
